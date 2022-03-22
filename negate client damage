@@ -1,0 +1,18 @@
+local player = game.Players.LocalPlayer
+local char = player.Character
+
+
+local function descendant(instance)
+	for i,v in pairs(char:GetDescendants()) do
+		if v == instance then
+			return true
+		end
+	end
+	return false
+end
+
+game.Workspace.DescendantAdded:Connect(function(instance)
+	if instance:IsA("TouchTransmitter") and not descendant(instance) then
+		instance:Destroy()
+	end
+end)
