@@ -8,7 +8,7 @@ local function descendant(instance)
 			return true
 		end
 	end
-	for i,v in pairs(player.Backpack:GetChildren()) do
+	for i,v in pairs(player.Backpack:GetDescendants()) do
 		if v == instance then
 			return true
 		end
